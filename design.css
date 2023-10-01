@@ -1,0 +1,282 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #000000;
+    color: white;
+}
+#navbar{
+    position: fixed;
+    /* backdrop-filter: blur(10px);
+    background: rgba(249, 113, 113, 0.1); */
+    background-color: #020202;
+    border-radius: 15px;
+        width: 290px;
+          
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/Sam.png);
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: rgb(130, 253, 247);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: 0.5s;
+}
+/* nav ul li a:hover{
+    color: rgb(255, 0, 34);
+    transition: 0.5s;
+} */
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: rgb(130, 253, 247);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+nav ul li a:hover{
+    color:  rgb(255, 0, 34);
+    font-size: 20px;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    margin-top: 20px;
+    font-size: 60px;
+}
+.header-text h1 span{
+    color: aqua;
+    transition: 0.5s;
+}
+.header-text h1 span:hover{
+    color:rgb(255, 0, 34) ;
+    font-size: 70px;
+}
+
+/* About Section */
+ 
+#about{
+    padding: 80px 0;
+    color:rgb(255, 255, 255); 
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1 img{
+    height: 400px;
+    width: 290px;
+    border-radius: 0 15px;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1{
+    width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.sub-title{
+    font-size: 50px;
+    font-weight: 600;
+    color: #FFFF;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background:rgb(255, 0, 34) ;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color:rgb(255, 0, 34);
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+/* Contact Tab  */
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+    margin-top: 30px;
+}
+.about-col-2 p{
+    margin-top: 40px;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid rgb(255, 0, 34);
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.3s;
+}
+.btn:hover{
+    background: rgb(255, 0, 34);
+}
+.btn btn2{
+    display: inline-block;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 16px;
+}
+form .btn3{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid rgb(255, 0, 34);
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.3s;
+    background: none;
+}
+.btn3:hover{
+    background: rgb(255, 0, 34);
+}
+.contact-left img{
+    width: 28px;
+    height: 28px;
+    margin-bottom: -10px;
+    margin-right: 9px;
+}
+nav .menu{
+    display: none;
+}
+nav .times{
+    display: none;
+}
+/* CSS for small screen */
+@media only screen and (max-width: 700px){
+    #header{
+        background-image: url(images/SamTALL.png);
+    }
+    nav .times{
+        display: block;
+    }
+    nav .menu{
+        display: block;
+        margin-left: 1px;
+        margin-top: 10px;
+    }
+    nav ul{
+        position: fixed;
+        top: 0;
+        left: -200px;
+        width: 150px;
+        height: 50vh;
+        padding-top: 50px;
+        /* margin-left: -20px; */
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border-top-right-radius: 18px;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+        box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        transition: 0.5s    ;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px;
+    }
+    nav ul .times{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .contact-right{
+        flex-basis: 100%;
+    }
+    .contact-left{
+        flex-basis: 100%;
+    }
+  #navbar{
+    width: 0;
+    height: 0;
+  }
+  
+}
+#msg{
+    color: aqua;
+    margin-top: -30px;
+    display: block;
+}

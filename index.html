@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav id="navbar">
+                <ul id="sidemenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <!-- <li><a href="#">Portfolio</a></li> -->
+                    <li><a href="#contact">Contact</a></li>
+                    <i onclick = "closeMenu()"><img src="images/times.svg" class="times" role="button" ></img></i>
+                </ul>
+                <img src="images/menu.svg" class="menu" role="button" onclick = "openMenu()">  
+            </nav>
+            <div class="header-text">
+                <p>Full Stack Web Developer</p>
+                <h1>Hi, I am <span>Samuel</span><br> from India.</h1>
+            </div>
+        </div>
+    </div>
+    <!-- About section -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/color.png" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, hic suscipit? Blanditiis tempore dignissimos, illo molestias culpa nulla a corporis deleniti. Error pariatur distinctio, doloremque aut voluptate consectetur nihil. Facilis.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onCLick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onCLick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onCLick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Creating APIs</span><br>Devoloping APIs using Springboot</li>
+                            <li><span>Web Development</span><br>Web app Development using Springboot and Angular</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2022</span><br>Full stack training at Hexaware Technologies</li>
+                            <li><span>2023</span><br>Working as a System Engineer at Hexaware Technologies</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2019 - 2022</span><br>Completed BSc Computer Science from Andhra University</li>
+                            <li><span>2017 - 2019</span><br>Completed Intermediate from Government Junior College</li>
+                            <li><span>2017</span><br>Completed SSC from Muncipal High School Kaspa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1>Contact Me</h1>
+                    <p><img src="images/mail.svg" alt=""><span>ssam73632@gmail.com</span></p>
+                  <p><img src="images/phone.svg.svg" alt=""></img><span>09705676373</span></p>
+                    <a href="images/sample.txt" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn3">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+
+    <script>
+
+        var sideMenu = document.getElementById("sidemenu");
+
+        function openMenu(){
+            sideMenu.style.left = "0";
+        }
+        function closeMenu(){
+            sideMenu.style.left = "-200px";
+        }
+
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyY7EQCl-oHAjuoRR8Uy66jftHHP52T4_ffih2a7zSzBBmqbLXABihgT7B5AG52EZDd/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
