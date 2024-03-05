@@ -228,6 +228,12 @@ nav .times{
     #header{
         background-image: url(images/SamTALL.png);
     }
+    .narrow{
+        display: block;
+    }
+    #fs{
+        padding-top: 20px;
+    }
     nav .times{
         display: block;
     }
